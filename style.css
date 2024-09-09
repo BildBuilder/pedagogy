@@ -487,7 +487,7 @@ footer .bg{
 }
 .footer-wrapper .twig {
     position: absolute;
-    top: -75%;
+    top: -450%;
     opacity: 0;
     height: 7.5vw;
     left: 10%;
@@ -516,8 +516,8 @@ footer .bg{
         overflow: hidden;
     }
     footer .bg{
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: 250%;
     }
     .passion-wrapper{
         margin-top: 5rem;
@@ -581,6 +581,10 @@ footer .bg{
     .pages-wrapper{
         gap: 2rem;
     }
+    .card:last-child{
+        width: 90%;
+        align-self: center;
+    }
     .testimonial-wrapper h1{
         padding: 0 1rem;
     }
@@ -591,7 +595,7 @@ footer .bg{
     }
     footer .bg{
         width: auto;
-        height: 100%;
+        height: 200%;
     }
     .footer-wrapper .twig{
         top: -5%;
