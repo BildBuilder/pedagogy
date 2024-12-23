@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>didaktiker.info</title>
+    <link rel="icon" href="images/dd_logosvg_1.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="cursor-inner"></div>
+    <div class="cursor-outer"></div>
     <div class="header-wrapper">
         <header>
-            <img src="images/dd_logosvg_1.svg" alt="Logo">
+            <a href="index.html"><img src="images/dd_logosvg_1.svg" alt="Logo"></a>
             <div class="navbar-action">
-                <nav>
+                <!-- <nav>
                     <a href="#">Products</a>
                     <a href="#">Services</a>
                     <a href="#">Contacts</a>
                     <a href="#">Log In</a>
-                </nav>
-                <button class="get-access" href="#">Get Access</button>
+                </nav> -->
+                <button class="get-access" id="contact-button" href="#">Kontakt</button>
             </div>
             <div class="hamburger-menu">
                 <div class="bar"></div>
@@ -33,20 +36,29 @@
         </div>
     </div>
     <div class="hero-section">
-        <img src="images/hero_section_after.svg" alt="">
+        <div class="hero">
+            <div class="hero-image">
+                <div class="hero-img"></div>
+                <!-- <div class="hero-image-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus velit error inventore obcaecati</div> -->
+            </div>
+            <div class="hero-content">
+                <!-- <h1>Transform Your Vision <span>Into Reality</span></h1> -->
+                <p>Egal, ob Sie eine <span>Keynote</span> halten, ein Team-Meeting leiten oder ein Seminar moderieren – wir unterstützen Sie dabei, zu glänzen. Entfalten Sie Ihr <span>Potenzial</span> mit <span>maßgeschneiderten Strategien</span>, kreativen Konzepten und fachkundiger Anleitung.</p>
+            </div>
+        </div>
     </div>
     <div class="potential-wrapper">
         <img src="images/twig.svg" alt="" class="twig">
-        <img src="images/flower_1.svg" alt="" class="flower" style="top: 25%; height: 2.5vw">
-        <img src="images/flower_2.svg" alt="" class="flower" style="top: 35%; height: 1.75vw">
+        <img src="images/flower_1.svg" alt="" class="flower" style="top: 10%; height: 2.5vw">
+        <img src="images/flower_2.svg" alt="" class="flower" style="top: 20%; height: 1.75vw">
         <div class="potential">
-            <h1>Unlock Your Potential With Our Education Services</h1>
-            <div style="display: flex; flex-direction: column; justify-content: space-between;height: 100%;">
-                <h4>Lorem ipsum dolor sit amet consectetur. Magna in amet mattis risus</h4>
-                <div>
+            <h1><span>Didaktik zum Buchen</span> – Konzepte, die dich weiterbringen</h1>
+            <div>
+                <h4>Mein Wissen vermittle ich online oder durch Beratung und Workshops. Ich zeige dir, wie du didaktische Prinzipien effektiv einsetzt, um deine Ziele schneller zu erreichen.</h4>
+                <!-- <div>
                     <button class="get-access">Get Access</button>
                     <button class="learn-more">Learn More</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -55,13 +67,13 @@
             <img src="images/stars-left.png" alt="" style="left: 22.5%;" class="stars-left">
             <img src="images/stars-right.png" alt="" style="right: 22.5%;" class="stars-right">
             <h1><span>Contact</span> Us For</h1>
-            <h4>Lorem ipsum dolor sit amet consectetur. Magna in amet mattis risus</h4>
+            <h4>Ob pädagogische Strukturen, kreative Konzepte oder inspirierende Raumgestaltung – ich begleite euch, um eure Präsentationen, Team-Coachings und Seminarformate auf das nächste Level zu bringen.</h4>
             <div class="grid-wrapper">
                 <div class="card">
                     <img src="images/1.png" alt="" class="img">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <!-- <span style="letter-spacing: 0.1em;">EXPLORE</span> -->
-                        <span style="font-size: 1.25rem; text-align: center;">Vertrauensvoller Partner</span>
+                        <p style="font-size: 1.25rem; text-align: center;">Vertrauensvoller Partner</p>
                         <!-- <div class="hover-content">Ich coache Sie und stehe Ihnen als vertrauensvoller Partner zur Seite, der Sie mit Rat und Tat unterstützt.</div> -->
                     </div>
                 </div>
@@ -69,7 +81,7 @@
                     <img src="images/2.png" alt="" class="img">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <!-- <span style="letter-spacing: 0.1em;">EXPLORE</span> -->
-                        <span style="font-size: 1.25rem; text-align: center;">Einzelcoaching für Pädagogen</span>
+                        <p style="font-size: 1.25rem; text-align: center;">Einzelcoaching für Pädagogen</p>
                         <!-- <div class="hover-content">Manchmal hat man ein komisches Bauchgefühl oder fühlt sich überfordert. Ängste können einen daran hindern, ordentlich zu arbeiten. Fragen wie „Wie ist das eigentlich mit der Aufsichtspflicht?“ oder „Wie kann ich gut in meinem Team arbeiten?“ können zu Unsicherheiten führen. Herausforderungen im Alltag können einen schnell aus der Bahn werfen. In einem persönlichen, beruflichen Coaching helfe ich Ihnen dabei, wie Sie in Ihrem Alltag zu einer ausgeglichenen und selbstsicheren Arbeitsweise finden. Gemeinsam erarbeiten wir Strategien, um Ihre Ängste zu überwinden und Ihre Kompetenzen zu stärken.</div> -->
                     </div>
                 </div>
@@ -77,7 +89,7 @@
                     <img src="images/3.png" alt="" class="img">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <!-- <span style="letter-spacing: 0.1em;">EXPLORE</span> -->
-                        <span style="font-size: 1.25rem; text-align: center;">Ideengeber und richtig tolle Workshops</span>
+                        <p style="font-size: 1.25rem; text-align: center;">Ideengeber und richtig tolle Workshops</p>
                         <!-- <div class="hover-content">Sie suchen nach kreativen Impulsen und innovativen Ideen für Ihre pädagogische Arbeit? Als Ideengeber unterstütze ich Sie dabei, frische Konzepte zu entwickeln und neue Ansätze auszuprobieren. Darüber hinaus biete ich Workshops an, die auf Ihre spezifischen Bedürfnisse zugeschnitten sind. Meine Workshops sind praxisorientiert und inspirierend. Gemeinsam gestalten wir eine lernfördernde und motivierende Atmosphäre, in der Ihr Team wachsen und sich weiterentwickeln kann.<br/><br/>
                             Schwerpunkte meiner Workshops umfassen:<br/><br/>
                             <ul>
@@ -98,7 +110,7 @@
                     <img src="images/4.png" alt="" class="img">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <!-- <span style="letter-spacing: 0.1em;">EXPLORE</span> -->
-                        <span style="font-size: 1.25rem; text-align: center;">Konzeptarbeit</span>
+                        <p style="font-size: 1.25rem; text-align: center;">Konzeptarbeit</p>
                         <!-- <div class="hover-content">Sie brauchen ein Konzept und wissen nicht, wo Sie anfangen sollen? Ich kann Ihnen helfen bei der Konzepterstellung für den pädagogischen Bereich. Egal ob es sich um die Entwicklung eines neuen pädagogischen Ansatzes, die Verbesserung bestehender Strukturen oder die Planung spezifischer Projekte handelt – ich unterstütze Sie dabei, klare und umsetzbare Konzepte zu entwickeln, die auf Ihre individuellen Bedürfnisse und Ziele zugeschnitten sind.
                             <br/><br/>
                             Jede Kita braucht ein Gewaltschutzkonzept. Ich kann dieses Konzept für Sie schreiben und umfassend dazu beraten, welche Teilaspekte dazugehören, wie zum Beispiel Verhaltenskodex, Verhaltensampel oder Standards, die im Träger implementiert werden sollen. Außerdem begleite ich Sie auf dem Weg, Konzepttage zu gestalten und mit dem Team auf ein tolles Endergebnis hinzuwirken, sodass jeder mitgenommen wird und sich alle mit der Konzeption identifizieren können.</div> -->
@@ -108,7 +120,7 @@
                     <img src="images/5.png" alt="" class="img">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <!-- <span style="letter-spacing: 0.1em;">EXPLORE</span> -->
-                        <span style="font-size: 1.25rem; text-align: center;">Leidenschaft fürs Ausstatten</span>
+                        <p style="font-size: 1.25rem; text-align: center;">Leidenschaft fürs Ausstatten</p>
                         <!-- <div class="hover-content">Sie planen einen neuen Raum oder eine gesamte Kita auszustatten? Ich begleite Sie von Anfang an im Beratungsprozess und treffe Absprachen mit dem Architekten. Mit einem ästhetischen und pädagogischen Feingefühl gestalte ich Räume, in denen Kinder sich wohlfühlen und optimal lernen können. Ihre Wünsche als Träger oder Kita-Leitung stehen dabei im Mittelpunkt. So etwas kann sehr zeitaufwendig sein und man braucht viel pädagogisches Geschick, um die Fallstricke zu umgehen und nicht später das Nachsehen zu haben. Im gemeinsamen Beratungsprozess kann ich Sie bereits jetzt schon darauf hinweisen und Ihnen tolle Endergebnisse versprechen, die nicht aussehen wie aus dem Katalog, sondern genau das sind, was Sie sich wünschen oder brauchen.</div> -->
                     </div>
                 </div>
@@ -116,7 +128,7 @@
                     <img src="images/6.png" alt="" class="img">
                     <div style="display: flex; flex-direction: column; align-items: center;">
                         <!-- <span style="letter-spacing: 0.1em;">EXPLORE</span> -->
-                        <span style="font-size: 1.25rem; text-align: center;">Berufliche Weiterentwicklung im pädagogischen Bereich</span>
+                        <p style="font-size: 1.25rem; text-align: center;">Berufliche Weiterentwicklung im pädagogischen Bereich</p>
                         <!-- <div class="hover-content">Erleben Sie maßgeschneidertes Coaching, das Sie in Ihrer beruflichen Weiterentwicklung unterstützt. Ob Sie gerade am Anfang Ihrer Leitungstätigkeit stehen oder bereits Erfahrungen gesammelt haben – ich begleite Sie auf Ihrem Weg zu einer erfolgreichen Führungskraft.
                             <br/><br/>
                             Leitungsaufgaben bringen zahlreiche Herausforderungen mit sich. Gemeinsam finden wir Wege, wie Sie schwierige Situationen souverän meistern und Ihr Team erfolgreich führen können.
@@ -125,10 +137,10 @@
                     </div>
                 </div>
             </div>
-            <button id="navigateButton" class="learn-more">Learn More</button>
+            <button id="navigateButton" class="learn-more">Mehr erfahren</button>
         </div>
     </div>
-    <div class="passion-wrapper">
+    <!-- <div class="passion-wrapper">
         <div class="passion-header">
             <h1>Pursue Your <span>Passion</span></h1>
             <h3 style="opacity: 0.5;margin-top: 20px;">Lorem ipsum dolor sit amet consectetur. Magna in amet mattis risus.</h3>
@@ -248,12 +260,12 @@
                 <button id="next"><img src="images/next_arrow.png" alt="" class="test-arrow"></button>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="footer-wrapper">
         <img src="images/footer-twig.svg" alt="" class="twig">
         <footer>
-            <img src="images/footer_bg.png" alt="" class="bg">
-            <img src="images/dd_logosvg_1.svg" alt="Logo" style="margin-bottom: 5rem;">
+            <!-- <img src="images/footer_bg.png" alt="" class="bg"> -->
+            <a href="index.html"><img src="images/dd_logosvg_1.svg" alt="Logo" style="margin-bottom: 5rem;"></a>
             <div class="socials" style="margin-bottom: 5rem;">
                 <img src="images/social1.svg" alt="">
                 <img src="images/social2.svg" alt="">
@@ -288,5 +300,10 @@
         </footer>
     </div>
     <script src="script.js"></script>
+    <script>
+        document.getElementById('navigateButton').onclick = function() {
+          window.location.href = 'learn-more.html';
+        };
+    </script>
 </body>
 </html>
