@@ -890,6 +890,9 @@ footer .bg{
 .info-desc{
     color: #313131;
 }
+.info-desc li{
+    color: #313131;
+}
 ul{
     padding-left: 1rem;
 }
