@@ -128,63 +128,63 @@ document.getElementById("contact-button").addEventListener("click", function() {
   window.location.href = "mailto:example@sales.com";
 });
 
-let innerCursor = document.querySelector(".cursor-inner");
-let outerCursor = document.querySelector(".cursor-outer");
-document.addEventListener("mousemove", moveCursor);
-function moveCursor(e){
-    let x = e.clientX;
-    let y = e.clientY;
-    innerCursor.style.left = `${x}px`;
-    innerCursor.style.top = `${y}px`;
-    outerCursor.style.left = `${x}px`;
-    outerCursor.style.top = `${y}px`;
-}
+// let innerCursor = document.querySelector(".cursor-inner");
+// let outerCursor = document.querySelector(".cursor-outer");
+// document.addEventListener("mousemove", moveCursor);
+// function moveCursor(e){
+//     let x = e.clientX;
+//     let y = e.clientY;
+//     innerCursor.style.left = `${x}px`;
+//     innerCursor.style.top = `${y}px`;
+//     outerCursor.style.left = `${x}px`;
+//     outerCursor.style.top = `${y}px`;
+// }
 
-let links = Array.from(document.querySelectorAll("a"));
-let buttons = Array.from(document.querySelectorAll("button"));
-let inputs = Array.from(document.querySelectorAll("input"));
+// let links = Array.from(document.querySelectorAll("a"));
+// let buttons = Array.from(document.querySelectorAll("button"));
+// let inputs = Array.from(document.querySelectorAll("input"));
 
-links.forEach((link) => {
-  link.addEventListener("mouseover", () => {
-    innerCursor.classList.add("grow");
-  });
-  link.addEventListener("mouseleave", () => {
-    innerCursor.classList.remove("grow");
-  });
-  link.addEventListener("mouseover", () => {
-    outerCursor.classList.add("fade");
-  });
-  link.addEventListener("mouseleave", () => {
-    outerCursor.classList.remove("fade");
-  });
-});
+// links.forEach((link) => {
+//   link.addEventListener("mouseover", () => {
+//     innerCursor.classList.add("grow");
+//   });
+//   link.addEventListener("mouseleave", () => {
+//     innerCursor.classList.remove("grow");
+//   });
+//   link.addEventListener("mouseover", () => {
+//     outerCursor.classList.add("fade");
+//   });
+//   link.addEventListener("mouseleave", () => {
+//     outerCursor.classList.remove("fade");
+//   });
+// });
 
-buttons.forEach((button) => {
-  button.addEventListener("mouseover", () => {
-    innerCursor.classList.add("grow");
-  });
-  button.addEventListener("mouseleave", () => {
-    innerCursor.classList.remove("grow");
-  });
-  button.addEventListener("mouseover", () => {
-    outerCursor.classList.add("fade");
-  });
-  button.addEventListener("mouseleave", () => {
-    outerCursor.classList.remove("fade");
-  });
-});
+// buttons.forEach((button) => {
+//   button.addEventListener("mouseover", () => {
+//     innerCursor.classList.add("grow");
+//   });
+//   button.addEventListener("mouseleave", () => {
+//     innerCursor.classList.remove("grow");
+//   });
+//   button.addEventListener("mouseover", () => {
+//     outerCursor.classList.add("fade");
+//   });
+//   button.addEventListener("mouseleave", () => {
+//     outerCursor.classList.remove("fade");
+//   });
+// });
 
-inputs.forEach((input) => {
-  input.addEventListener("mouseover", () => {
-    innerCursor.classList.add("grow");
-  });
-  input.addEventListener("mouseleave", () => {
-    innerCursor.classList.remove("grow");
-  });
-  input.addEventListener("mouseover", () => {
-    outerCursor.classList.add("fade");
-  });
-  input.addEventListener("mouseleave", () => {
-    outerCursor.classList.remove("fade");
-  });
-});
+// inputs.forEach((input) => {
+//   input.addEventListener("mouseover", () => {
+//     innerCursor.classList.add("grow");
+//   });
+//   input.addEventListener("mouseleave", () => {
+//     innerCursor.classList.remove("grow");
+//   });
+//   input.addEventListener("mouseover", () => {
+//     outerCursor.classList.add("fade");
+//   });
+//   input.addEventListener("mouseleave", () => {
+//     outerCursor.classList.remove("fade");
+//   });
+// });
