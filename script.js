@@ -118,6 +118,14 @@
 //       mobileNav.classList.toggle("active");
 //   });
 // });
+document.addEventListener('DOMContentLoaded', () => {
+  const sun = document.querySelector('.sun');
+  sun.style.opacity = '0';
+  
+  sun.addEventListener('load', () => {
+    sun.style.animation = 'revealSun 1s ease-out forwards';
+  });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const domainName = window.location.hostname;
