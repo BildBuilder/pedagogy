@@ -468,8 +468,8 @@ nav a{
     width: 80rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10rem;
+    justify-content: center;
+    /* gap: 10rem; */
     padding: 10rem 0;
 }
 @keyframes revealRight {
@@ -865,11 +865,14 @@ footer .bg{
     gap: 2rem;
 }
 .didactiker_logo{
-    width: 20rem;
+    width: 50%;
 }
 @media screen and (max-width: 1200px) {
+    .contact-us .stars-left, .stars-right{
+        display: none;
+    }
     .potential{
-        gap: 3.5rem;
+        /* gap: 3.5rem; */
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -924,18 +927,16 @@ footer .bg{
     .hero-section img{
         bottom: -2%;
     }
-    .potential{
-        flex-direction: column;
-        gap: 5rem;
+    /* .potential{
         padding-top: 5rem;
         padding-bottom: 5rem;
-    }
+    } */
     .potential h4{
         margin-bottom: 1rem;
     }
-    /* .didactiker_logo{
+    .didactiker_logo{
         width: 20rem;
-    } */
+    }
     .passion-wrapper{
         margin-top: 5rem;
     }
