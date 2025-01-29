@@ -469,7 +469,7 @@ nav a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15rem;
+    gap: 10rem;
     padding: 10rem 0;
 }
 @keyframes revealRight {
@@ -864,6 +864,9 @@ footer .bg{
     margin-left: 20rem;
     gap: 2rem;
 }
+.didactiker_logo{
+    width: 20rem;
+}
 @media screen and (max-width: 1200px) {
     .potential{
         gap: 3.5rem;
@@ -925,10 +928,14 @@ footer .bg{
         flex-direction: column;
         gap: 5rem;
         padding-top: 5rem;
+        padding-bottom: 5rem;
     }
     .potential h4{
         margin-bottom: 1rem;
     }
+    /* .didactiker_logo{
+        width: 20rem;
+    } */
     .passion-wrapper{
         margin-top: 5rem;
     }
