@@ -987,6 +987,10 @@ footer .bg{
         font-size: 1rem;
         color: #F1DE9A !important;
     }
+    .education-content{
+        margin-left: 0;
+        padding: 1rem;
+    }
     footer {
         flex-direction: row;
         flex-wrap: wrap;
