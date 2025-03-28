@@ -179,6 +179,9 @@ nav a{
         padding: 0.5rem 1rem;
         font-size: 0.875rem;
     }
+    .header-wrapper{
+        padding: 0 0.5rem;
+    }
 }
 /* .hero-section{
     height: calc(100vh - 80px);
@@ -863,7 +866,7 @@ footer .bg{
 }
 .footer-wrapper .twig {
     position: absolute;
-    top: -440%;
+    top: -530%;
     opacity: 0;
     height: 7.5vw;
     left: 10%;
@@ -883,12 +886,18 @@ footer .bg{
 .footer-content p{
     color: #70838c;
 }
+.education-content{
+    max-width: 45rem;
+    color: #044745 !important;
+    margin-left: 5rem;
+    margin-bottom: 5rem;
+}
 .popup {
     display: none;
     position: absolute;
     bottom: 70px;
     right: 0;
-    width: 300px;
+    width: 400px;
     background: #FCF7ED;
     color: #044745;
     padding: 16px;
@@ -1070,16 +1079,25 @@ footer .bg{
     .didactiker_logo{
         width: 20rem;
     }
+    .footer-content {
+        width: 100%;
+        text-align: center;
+    }
     .passion-wrapper{
         margin-top: 5rem;
     }
     .potential-wrapper img{
         display: none;
     }
-    .impressum{
-        text-align: center;
-        font-size: 1.25rem;
+    .popup, .impressum-content {
+        display: none !important;
+    }
+    .impressum {
+        display: inline-block;
+        cursor: pointer;
+        margin: 1rem 0;
         color: #70838c !important;
+        text-decoration: none;
     }
     .footer-contact {
         margin-top: 4rem;

@@ -136,6 +136,43 @@ document.getElementById("contact-button").addEventListener("click", function() {
   window.location.href = "mailto:example@sales.com";
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const impressumElement = document.querySelector('.impressum');
+  
+  function handleImpressumClick() {
+      // Check if we're on mobile (under 500px)
+      if (window.innerWidth < 500) {
+          window.location.href = 'impressum.html';
+      }
+  }
+  
+  // Add click event to the impressum text
+  if (impressumElement) {
+      impressumElement.addEventListener('click', handleImpressumClick);
+  }
+  
+  // Also handle window resize to update the event if needed
+  window.addEventListener('resize', function() {
+      if (impressumElement) {
+          if (window.innerWidth < 500) {
+              // Make it look clickable on mobile
+              impressumElement.style.cursor = 'pointer';
+              impressumElement.style.textDecoration = 'underline';
+          } else {
+              // Return to default on larger screens
+              impressumElement.style.cursor = '';
+              impressumElement.style.textDecoration = '';
+          }
+      }
+  });
+  
+  // Initialize the correct state on page load
+  if (impressumElement && window.innerWidth < 500) {
+      impressumElement.style.cursor = 'pointer';
+      impressumElement.style.textDecoration = 'underline';
+  }
+});
+
 // let innerCursor = document.querySelector(".cursor-inner");
 // let outerCursor = document.querySelector(".cursor-outer");
 // document.addEventListener("mousemove", moveCursor);
