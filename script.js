@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById("contact-button").addEventListener("click", function() {
-  window.location.href = "mailto:example@sales.com";
+  window.location.href = "mailto:didaktiker@gmx.de";
 });
 
 document.addEventListener('DOMContentLoaded', function() {
