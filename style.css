@@ -495,7 +495,7 @@ nav a{
         transform: translateX(400%) rotate(360deg);
     }
 }
-.potential-wrapper .flower{
+.potential-wrapper .flower1{
     position: absolute;
     opacity: 0;
     left: 10%;
@@ -503,6 +503,17 @@ nav a{
     animation: revealLeft linear forwards;
     animation-timeline: view();
     animation-range: entry 0% cover 60%;
+    top: 10%; height: 2.5vw;
+}
+.potential-wrapper .flower2{
+    position: absolute;
+    opacity: 0;
+    left: 10%;
+    transform: translateX(100%);
+    animation: revealLeft linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+    top: 20%; height: 1.75vw;
 }
 .potential-wrapper .twig {
     position: absolute;
@@ -1073,6 +1084,19 @@ footer .bg{
     .hero-section img{
         bottom: -2%;
     }
+    .potential-wrapper .twig{
+        height: 17vw;
+    }
+    .potential-wrapper .flower1{
+        top: 70%;
+        height: 10vw;
+        left: 5%;
+    }
+    .potential-wrapper .flower2{
+        top: 80%;
+        height: 8vw;
+        left: 5%;
+    }
     /* .potential{
         padding-top: 5rem;
         padding-bottom: 5rem;
@@ -1090,9 +1114,9 @@ footer .bg{
     .passion-wrapper{
         margin-top: 5rem;
     }
-    .potential-wrapper img{
+    /* .potential-wrapper img{
         display: none;
-    }
+    } */
     .popup, .impressum-content {
         display: none !important;
     }
@@ -1164,6 +1188,16 @@ footer .bg{
     }
     .testimonial{
         margin-left: 22rem;
+    }
+    @keyframes revealRight {
+        0% {
+            opacity: 0.25;
+            transform: translateX(200%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(50%);
+        }
     }
 }
 .sub-explore-wrapper{
