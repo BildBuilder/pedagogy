@@ -866,7 +866,7 @@ footer .bg{
 }
 .footer-wrapper .twig {
     position: absolute;
-    top: -530%;
+    top: -540%;
     opacity: 0;
     height: 7.5vw;
     left: 10%;
