@@ -1,19 +1,11 @@
 ﻿"use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText("didaktiker@gmx.de").then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
 
   return (
     <section id="kontakt" ref={ref} className="relative py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED] overflow-hidden">
@@ -87,21 +79,7 @@ export default function Contact() {
                 </svg>
                 E-Mail schreiben
               </a>
-              <button
-                onClick={handleCopy}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#044745]/20 text-[#044745] text-sm rounded-full hover:border-[#044745]/40 transition-colors duration-300"
-              >
-                {copied ? (
-                  <>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="w-4 h-4 text-[#C9A84C]">
-                      <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    Kopiert!
-                  </>
-                ) : (
-                  "didaktiker@gmx.de"
-                )}
-              </button>
+
             </motion.div>
           </div>
 
