@@ -16,7 +16,7 @@ function WordReveal({
   return (
     <>
       {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden mr-[0.22em] last:mr-0">
+        <span key={`${word}-${i}`} className="inline-block overflow-hidden pb-[0.14em] mb-[-0.14em] mr-[0.22em] last:mr-0">
           <motion.span
             className={`inline-block ${gold ? "text-[#C9A84C]" : "text-[#FCF7ED]"}`}
             initial={{ y: "105%", opacity: 0 }}

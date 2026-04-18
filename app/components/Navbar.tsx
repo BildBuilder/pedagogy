@@ -27,11 +27,8 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      <header
+        className={`fixed inset-x-0 top-0 z-50 overflow-x-hidden transition-all duration-500 ${
           scrolled
             ? "bg-[#FCF7ED]/96 backdrop-blur-sm border-b border-[#044745]/8"
             : "bg-transparent"
@@ -39,12 +36,16 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="w-8 h-8 rounded-full bg-[#044745] text-[#FCF7ED] text-xs font-bold flex items-center justify-center tracking-tight group-hover:bg-[#C9A84C] group-hover:text-[#044745] transition-all duration-300">
-              dd
-            </span>
-            <span className="hidden sm:block text-[#044745] text-sm font-medium tracking-wide">
-              didaktiker.info
+          <Link href="/" className="flex items-center gap-2 group">
+            <img
+              src="/dd_logosvg.svg"
+              alt="didaktiker"
+              width={36}
+              height={36}
+              className="transition-opacity duration-300 group-hover:opacity-80"
+            />
+            <span className="hidden sm:block text-[#FCF7ED] text-sm font-medium tracking-wide transition-colors duration-300" style={{ color: scrolled ? '#044745' : undefined }}>
+              didaktiker
             </span>
           </Link>
 
@@ -70,27 +71,34 @@ export default function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 flex flex-col gap-1.5"
-            aria-label="Menü öffnen"
+            className="md:hidden p-2 flex flex-col gap-1.5 overflow-hidden"
+            aria-label="Men\u00fc \u00f6ffnen"
           >
-            <motion.span
-              animate={{ rotate: open ? 45 : 0, y: open ? 7 : 0 }}
-              transition={{ duration: 0.25 }}
-              className="block w-5 h-px bg-[#044745] rounded-full"
+            <span
+              className="block w-5 h-px bg-[#FCF7ED] rounded-full origin-center transition-transform duration-250"
+              style={{
+                transform: open ? 'translateY(7px) rotate(45deg)' : 'none',
+                backgroundColor: scrolled ? '#044745' : undefined,
+              }}
             />
-            <motion.span
-              animate={{ opacity: open ? 0 : 1, scaleX: open ? 0 : 1 }}
-              transition={{ duration: 0.2 }}
-              className="block w-5 h-px bg-[#044745] rounded-full"
+            <span
+              className="block w-5 h-px bg-[#FCF7ED] rounded-full transition-all duration-200"
+              style={{
+                opacity: open ? 0 : 1,
+                transform: open ? 'scaleX(0)' : 'scaleX(1)',
+                backgroundColor: scrolled ? '#044745' : undefined,
+              }}
             />
-            <motion.span
-              animate={{ rotate: open ? -45 : 0, y: open ? -7 : 0 }}
-              transition={{ duration: 0.25 }}
-              className="block w-5 h-px bg-[#044745] rounded-full"
+            <span
+              className="block w-5 h-px bg-[#FCF7ED] rounded-full origin-center transition-transform duration-250"
+              style={{
+                transform: open ? 'translateY(-7px) rotate(-45deg)' : 'none',
+                backgroundColor: scrolled ? '#044745' : undefined,
+              }}
             />
           </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile drawer */}
       <AnimatePresence>

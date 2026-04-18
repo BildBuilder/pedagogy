@@ -21,6 +21,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 68px;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,7 +39,7 @@ body {
 }
 
 /* Refined scrollbar */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 0px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
 ::-webkit-scrollbar-thumb { background: rgba(4, 71, 69, 0.25); border-radius: 2px; }
 

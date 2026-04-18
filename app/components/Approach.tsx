@@ -27,7 +27,7 @@ export default function Approach() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="ansatz" ref={ref} className="py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED]">
+    <section id="ansatz" ref={ref} className="py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED] overflow-hidden">
       <div className="max-w-6xl mx-auto">
 
         {/* Section label */}

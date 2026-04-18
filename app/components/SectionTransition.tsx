@@ -45,7 +45,7 @@ export default function SectionTransition({
     <div
       ref={ref}
       className={className}
-      style={{ perspective: "1400px", perspectiveOrigin: "50% -8%" }}
+      style={{ perspective: "1400px", perspectiveOrigin: "50% -8%", overflow: "hidden" }}
     >
       <motion.div
         style={{

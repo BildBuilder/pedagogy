@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   title: "didaktiker.info – Bildung, Pädagogik & Kreatives",
   description:
     "Individuelle Lösungen für Bildung, Medien & Performance. Coaching, Workshops, Konzeptarbeit und mehr – fundierte Didaktik für nachhaltigen Lernerfolg.",
+  icons: {
+    icon: "/dd_logosvg.svg",
+    shortcut: "/dd_logosvg.svg",
+    apple: "/dd_logosvg.svg",
+  },
 };
 
 export default function RootLayout({

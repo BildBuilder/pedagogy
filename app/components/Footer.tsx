@@ -9,12 +9,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start justify-between gap-12 pb-12 border-b border-[#FCF7ED]/8">
 
           {/* Brand */}
-          <div className="max-w-[200px]">
+          <div className="max-w-[220px]">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="w-8 h-8 rounded-full bg-[#FCF7ED]/8 border border-[#FCF7ED]/15 flex items-center justify-center text-[#C9A84C] text-xs font-bold">
-                dd
-              </span>
-              <span className="text-[#FCF7ED] text-sm font-medium tracking-wide">didaktiker.info</span>
+              <img src="/dd_logosvg.svg" alt="didaktiker" width={36} height={36} />
+              <span className="text-[#FCF7ED] text-sm font-medium tracking-wide">didaktiker</span>
             </div>
             <p className="text-[#FCF7ED]/45 text-xs leading-relaxed">
               Bildung, Pädagogik &amp; Kreatives –<br />
@@ -100,7 +98,7 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-[#FCF7ED]/30">
-          <p>© {new Date().getFullYear()} didaktiker.info · Helene Kleinfeld</p>
+          <p>© {new Date().getFullYear()} didaktiker · Helene Kleinfeld</p>
           <Link href="/impressum" className="hover:text-[#C9A84C] transition-colors">
             Impressum
           </Link>
