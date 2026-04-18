@@ -1,142 +1,165 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const pillars = [
+const PILLARS = [
   {
-    icon: "◈",
-    title: "Strukturierter Kompetenzaufbau",
-    desc: "Klar definierte Lernschritte für nachhaltigen, messbaren Erfolg.",
+    key: "Strukturiertem Kompetenzaufbau",
+    desc: "klar definierte Lernschritte für nachhaltigen Erfolg.",
   },
   {
-    icon: "◇",
-    title: "Praxisnahe Anwendung",
-    desc: "Lernen wird direkt in den Alltag integriert – sofort anwendbar.",
+    key: "Praxisnaher Anwendung",
+    desc: "Lernen wird direkt in den Alltag integriert.",
   },
   {
-    icon: "◉",
-    title: "Effiziente Methoden",
-    desc: "Minimaler Aufwand, maximaler Impact – Zeit ist wertvoll.",
+    key: "Effizienten Methoden",
+    desc: "minimaler Aufwand, maximaler Impact.",
   },
   {
-    icon: "◎",
-    title: "Transformation durch Storytelling",
-    desc: "Wissen wird emotional verankert und langfristig behalten.",
+    key: "Transformation durch Storytelling",
+    desc: "Wissen wird emotional verankert.",
   },
 ];
 
-import type { Variants } from "framer-motion";
-
-const fadeUp = (delay = 0): Variants => ({
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay } as never,
-  },
-});
-
 export default function Approach() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="ansatz" ref={ref} className="py-20 md:py-32 px-5 bg-[#FCF7ED] overflow-hidden">
+    <section id="ansatz" ref={ref} className="py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED]">
       <div className="max-w-6xl mx-auto">
+
         {/* Section label */}
         <motion.div
-          variants={fadeUp(0)}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="flex items-center gap-3 mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex items-center gap-3 mb-12"
         >
-          <div className="w-8 h-px bg-[#C9A84C]" />
-          <span className="text-xs font-medium tracking-widest uppercase text-[#C9A84C]">
+          <div className="w-6 h-px bg-[#C9A84C]" />
+          <span className="text-[#C9A84C] text-[11px] font-medium tracking-[0.22em] uppercase">
             Mein Ansatz
           </span>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          {/* Left: text block */}
-          <div>
-            <motion.h2
-              variants={fadeUp(0.1)}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#044745] leading-tight mb-6"
-            >
-              Der Weg der{" "}
-              <span className="relative">
-                Meisterschaft
-                <svg viewBox="0 0 160 10" className="absolute -bottom-1.5 left-0 w-full h-2.5">
-                  <path
-                    d="M 0 6 Q 40 1 80 6 Q 120 11 160 6"
-                    stroke="#C9A84C"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-            </motion.h2>
+        {/* Main H2 */}
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.85, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-[#044745] leading-tight mb-8 max-w-3xl"
+          style={{
+            fontFamily: "var(--font-cormorant), Georgia, serif",
+            fontWeight: 300,
+            fontSize: "clamp(2rem, 5.5vw, 3.75rem)",
+          }}
+        >
+          Individuelle Lösungen für
+          <br />
+          Bildung, Medien &amp; Performance
+        </motion.h2>
 
-            <motion.p
-              variants={fadeUp(0.2)}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="text-[#044745]/75 text-lg leading-relaxed mb-8"
+        {/* Intro paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-[#044745]/65 text-base sm:text-lg leading-relaxed max-w-2xl mb-16"
+        >
+          Fundierte Didaktik, Pädagogik und Medienwissenschaft machen den Unterschied.
+          Ich helfe dir, Lernprozesse so zu gestalten, dass sie nachhaltig wirken, leicht
+          verständlich sind und echte Transformation ermöglichen.
+        </motion.p>
+
+        {/* Thin rule */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={inView ? { scaleX: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="h-px bg-[#044745]/10 mb-16 origin-left"
+        />
+
+        {/* Two-column editorial grid */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start mb-16">
+
+          {/* Left: sub-section heading + description */}
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <h3
+              className="text-[#044745] leading-snug mb-5"
+              style={{
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontWeight: 500,
+                fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              }}
             >
+              Mein Ansatz: Der Weg der Meisterschaft
+            </h3>
+            <p className="text-[#044745]/65 text-sm sm:text-base leading-relaxed">
               Mein didaktisches Coaching basiert auf bewährten Prinzipien der
-              Erwachsenenbildung, kombiniert mit innovativen Lernformaten. Ich helfe dir,
-              Lernprozesse so zu gestalten, dass sie nachhaltig wirken, leicht
-              verständlich sind und echte Transformation ermöglichen.
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp(0.3)}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            >
-              <p className="text-[#044745] font-semibold text-lg mb-2">
-                Individuelle Lösungen für
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Bildung", "Medien", "Performance", "Coaching"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full bg-[#044745]/8 text-[#044745] text-sm font-medium border border-[#044745]/15"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+              Erwachsenenbildung, kombiniert mit innovativen Lernformaten.
+              Der Fokus liegt auf:
+            </p>
+          </motion.div>
 
           {/* Right: pillars */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {pillars.map((p, i) => (
+          <div className="divide-y divide-[#044745]/8">
+            {PILLARS.map((p, i) => (
               <motion.div
-                key={p.title}
-                variants={fadeUp(0.15 + i * 0.1)}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                className="group p-5 rounded-2xl border border-[#044745]/12 hover:border-[#044745]/30 bg-white hover:bg-[#044745] transition-all duration-400 cursor-default"
+                key={p.key}
+                initial={{ opacity: 0, x: 28 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.44 + i * 0.09, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="flex items-start gap-4 py-4 first:pt-0 last:pb-0 group"
               >
-                <span className="text-2xl text-[#C9A84C] mb-3 block group-hover:scale-110 transition-transform duration-300">
-                  {p.icon}
-                </span>
-                <h3 className="font-semibold text-[#044745] group-hover:text-[#FCF7ED] text-sm mb-1.5 transition-colors duration-300">
-                  {p.title}
-                </h3>
-                <p className="text-[#044745]/60 group-hover:text-[#FCF7ED]/70 text-xs leading-relaxed transition-colors duration-300">
-                  {p.desc}
+                <motion.span
+                  className="text-[#C9A84C] text-sm font-medium flex-shrink-0 mt-0.5"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={inView ? { scale: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.4, delay: 0.54 + i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  &#10004;
+                </motion.span>
+                <p className="text-[#044745] text-sm sm:text-base leading-relaxed group-hover:translate-x-1 transition-transform duration-300">
+                  <strong className="font-semibold">{p.key}</strong>
+                   {" – "}
+                  <span className="text-[#044745]/65">{p.desc}</span>
                 </p>
               </motion.div>
             ))}
           </div>
         </div>
+
+        {/* CTA banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.85, delay: 0.75, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-8 rounded-xl bg-[#044745]"
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-cormorant), Georgia, serif",
+              fontWeight: 400,
+              fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
+              color: "#FCF7ED",
+              lineHeight: 1.3,
+            }}
+          >
+            Mein Education Consulting bringt dich voran!
+          </p>
+          <button
+            onClick={() => document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" })}
+            className="flex-shrink-0 px-6 py-2.5 border border-[#FCF7ED]/25 text-[#FCF7ED] text-sm rounded-full hover:bg-[#FCF7ED]/10 hover:border-[#FCF7ED]/50 transition-all duration-300 whitespace-nowrap"
+          >
+            Kontaktiere mich
+          </button>
+        </motion.div>
+
       </div>
     </section>
   );

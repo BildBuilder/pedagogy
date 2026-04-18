@@ -1,160 +1,157 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
-import type { Variants } from "framer-motion";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
+/* ── Word-by-word clip reveal ─────────────────────────────────────────────── */
+function WordReveal({
+  words,
+  delay = 0,
+  gold = false,
+}: {
+  words: string[];
+  delay?: number;
+  gold?: boolean;
+}) {
+  return (
+    <>
+      {words.map((word, i) => (
+        <span key={`${word}-${i}`} className="inline-block overflow-hidden mr-[0.22em] last:mr-0">
+          <motion.span
+            className={`inline-block ${gold ? "text-[#C9A84C]" : "text-[#FCF7ED]"}`}
+            initial={{ y: "105%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 0.85, delay: delay + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </>
+  );
+}
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  const handleScroll = () => {
-    const el = document.querySelector("#leistungen");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  const yContent = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const opacityContent = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const yVideo = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#044745] px-5 pt-24 pb-16"
+      className="relative min-h-screen md:h-screen flex flex-col overflow-hidden bg-[#021e1d]"
     >
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute -top-32 -left-32 w-80 h-80 rounded-full opacity-20 float-slow"
-          style={{ background: "radial-gradient(circle, #C9A84C 0%, transparent 70%)" }}
-        />
-        <div
-          className="absolute top-1/3 -right-24 w-64 h-64 rounded-full opacity-15 float-medium"
-          style={{
-            background: "radial-gradient(circle, #FCF7ED 0%, transparent 70%)",
-            animationDelay: "2s",
-          }}
-        />
-        <div
-          className="absolute bottom-16 left-1/4 w-48 h-48 rounded-full opacity-10 float-slow"
-          style={{
-            background: "radial-gradient(circle, #C9A84C 0%, transparent 70%)",
-            animationDelay: "3.5s",
-          }}
-        />
-        {/* Grid lines */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(252,247,237,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(252,247,237,0.3) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
+      {/* ── Background video ── */}
       <motion.div
-        style={{ y, opacity }}
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 text-center max-w-3xl mx-auto"
+        className="absolute inset-0 w-full h-full"
+        style={{ y: yVideo }}
       >
-        {/* Badge */}
-        <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-6">
-          <span className="px-4 py-1.5 rounded-full border border-[#C9A84C]/50 text-[#C9A84C] text-xs font-medium tracking-widest uppercase">
-            Pädagogik &amp; Bildung
-          </span>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1
-          variants={fadeUp}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#FCF7ED] leading-tight tracking-tight mb-6"
-        >
-          Dein Content für{" "}
-          <span className="relative inline-block">
-            <span className="text-[#C9A84C]">Bildung,</span>
-          </span>
-          <br />
-          Pädagogik &amp;{" "}
-          <span className="relative">
-            <span className="text-[#C9A84C]">Kreatives</span>
-            {/* underline decoration */}
-            <motion.svg
-              viewBox="0 0 200 12"
-              className="absolute -bottom-2 left-0 w-full h-3"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <motion.path
-                d="M 0 8 Q 50 2 100 8 Q 150 14 200 8"
-                stroke="#C9A84C"
-                strokeWidth="2.5"
-                fill="none"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-              />
-            </motion.svg>
-          </span>
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p
-          variants={fadeUp}
-          className="text-[#FCF7ED]/70 text-lg sm:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
-        >
-          Fundierte Didaktik und Pädagogik, die Lernprozesse nachhaltig gestaltet –
-          leicht verständlich und wirkungsvoll.
-        </motion.p>
-
-        {/* CTA buttons */}
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <button
-            onClick={() => {
-              const el = document.querySelector("#kontakt");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="w-full sm:w-auto px-8 py-4 bg-[#C9A84C] text-[#044745] font-semibold rounded-full hover:bg-[#e0bc60] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-[#C9A84C]/20"
-          >
-            Kontaktiere mich
-          </button>
-          <button
-            onClick={handleScroll}
-            className="w-full sm:w-auto px-8 py-4 border border-[#FCF7ED]/30 text-[#FCF7ED] font-medium rounded-full hover:bg-[#FCF7ED]/10 transition-all duration-300"
-          >
-            Leistungen entdecken
-          </button>
-        </motion.div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-[1.18]"
+          src="/hero_section.mp4"
+        />
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* ── Overlay gradients ── */}
+      {/* Main teal wash */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(4,71,69,0.88) 0%, rgba(4,71,69,0.72) 50%, rgba(2,30,29,0.82) 100%)",
+        }}
+      />
+      {/* Bottom fade to match next section */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, rgba(4,71,69,0.95))",
+        }}
+      />
+      {/* Subtle vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 40%, rgba(2,20,19,0.55) 100%)",
+        }}
+      />
+
+      {/* ── Content ── */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ y: yContent, opacity: opacityContent }}
+        className="relative z-10 flex-1 flex items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 max-w-screen-xl mx-auto w-full pt-24 pb-12"
       >
-        <span className="text-[#FCF7ED]/40 text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-0.5 h-8 bg-gradient-to-b from-[#FCF7ED]/40 to-transparent rounded-full"
-        />
+        <div className="max-w-3xl">
+          {/* Eyebrow */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-[#C9A84C]/75 text-xs font-semibold tracking-[0.22em] uppercase mb-7"
+          >
+            Bildungsberatung &amp; P&auml;dagogik
+          </motion.p>
+
+          {/* Headline — 2 lines */}
+          <h1
+            className="leading-[1.06] mb-8 tracking-tight"
+            style={{
+              fontFamily: "var(--font-cormorant), Georgia, serif",
+              fontWeight: 300,
+              fontSize: "clamp(2.8rem, 5.2vw, 5.8rem)",
+            }}
+          >
+            {/* Line 1 */}
+            <div className="block">
+              <WordReveal words={["Dein", "Partner"]} delay={0.28} />
+            </div>
+            {/* Line 2 — gold */}
+            <div className="block">
+              <WordReveal words={["f\u00fcr", "Bildung", "&", "P\u00e4dagogik"]} delay={0.52} gold />
+            </div>
+          </h1>
+
+          {/* Gold rule */}
+          <motion.div
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="h-px w-16 bg-[#C9A84C]/55 origin-left mb-10"
+          />
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="flex flex-col sm:flex-row items-start gap-4"
+          >
+            <a href="#kontakt" className="group relative px-8 py-[1rem] rounded-full overflow-hidden">
+              <motion.span
+                className="absolute inset-0 bg-[#C9A84C] rounded-full"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.28 }}
+              />
+              <span className="relative z-10 text-[#044745] font-semibold text-sm tracking-wide whitespace-nowrap">
+                Kontaktiere mich
+              </span>
+            </a>
+            <a
+              href="#leistungen"
+              className="px-8 py-[1rem] border border-[#FCF7ED]/22 text-[#FCF7ED]/75 text-sm font-medium rounded-full hover:bg-[#FCF7ED]/10 hover:border-[#FCF7ED]/40 hover:text-[#FCF7ED] transition-all duration-300 whitespace-nowrap"
+            >
+              Leistungen entdecken
+            </a>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

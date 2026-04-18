@@ -4,65 +4,64 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-const navLinks = [
-  { label: "Ansatz", href: "#ansatz" },
-  { label: "Leistungen", href: "#leistungen" },
-  { label: "Kontakt", href: "#kontakt" },
+const NAV_SECTIONS = [
+  { label: "Ansatz", id: "ansatz" },
+  { label: "Leistungen", id: "leistungen" },
+  { label: "Kontakt", id: "kontakt" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handler = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (id: string) => {
+    setOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#FCF7ED]/95 backdrop-blur-md shadow-sm border-b border-[#044745]/10"
+            ? "bg-[#FCF7ED]/96 backdrop-blur-sm border-b border-[#044745]/8"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-          {/* Logo / Brand */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-full bg-[#044745] flex items-center justify-center text-[#FCF7ED] font-bold text-sm tracking-tight group-hover:scale-105 transition-transform duration-300">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <span className="w-8 h-8 rounded-full bg-[#044745] text-[#FCF7ED] text-xs font-bold flex items-center justify-center tracking-tight group-hover:bg-[#C9A84C] group-hover:text-[#044745] transition-all duration-300">
               dd
-            </div>
-            <span className="font-semibold text-[#044745] text-base hidden sm:block">
+            </span>
+            <span className="hidden sm:block text-[#044745] text-sm font-medium tracking-wide">
               didaktiker.info
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+          <nav className="hidden md:flex items-center gap-10">
+            {NAV_SECTIONS.map((s) => (
               <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-[#044745] text-sm font-medium hover:text-[#C9A84C] transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#C9A84C] after:transition-all after:duration-300 hover:after:w-full"
+                key={s.id}
+                onClick={() => scrollTo(s.id)}
+                className="text-[#044745]/60 text-sm hover:text-[#044745] transition-colors duration-200 tracking-wide"
               >
-                {link.label}
+                {s.label}
               </button>
             ))}
             <button
-              onClick={() => handleNavClick("#kontakt")}
-              className="px-5 py-2 bg-[#044745] text-[#FCF7ED] text-sm font-medium rounded-full hover:bg-[#0a6b68] transition-colors duration-300"
+              onClick={() => scrollTo("kontakt")}
+              className="px-5 py-2 border border-[#044745]/30 text-[#044745] text-sm rounded-full hover:bg-[#044745] hover:text-[#FCF7ED] hover:border-[#044745] transition-all duration-300"
             >
               Kontaktiere mich
             </button>
@@ -70,59 +69,62 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            onClick={() => setMenuOpen((o) => !o)}
-            className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-[#044745]/10 transition-colors"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden p-2 flex flex-col gap-1.5"
             aria-label="Menü öffnen"
           >
             <motion.span
-              animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-[#044745] rounded-full origin-center transition-all"
+              animate={{ rotate: open ? 45 : 0, y: open ? 7 : 0 }}
+              transition={{ duration: 0.25 }}
+              className="block w-5 h-px bg-[#044745] rounded-full"
             />
             <motion.span
-              animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-              className="block w-5 h-0.5 bg-[#044745] rounded-full"
+              animate={{ opacity: open ? 0 : 1, scaleX: open ? 0 : 1 }}
+              transition={{ duration: 0.2 }}
+              className="block w-5 h-px bg-[#044745] rounded-full"
             />
             <motion.span
-              animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-[#044745] rounded-full origin-center"
+              animate={{ rotate: open ? -45 : 0, y: open ? -7 : 0 }}
+              transition={{ duration: 0.25 }}
+              className="block w-5 h-px bg-[#044745] rounded-full"
             />
           </button>
         </div>
       </motion.header>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       <AnimatePresence>
-        {menuOpen && (
+        {open && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-[65px] z-40 bg-[#FCF7ED] border-b border-[#044745]/10 shadow-lg md:hidden"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22 }}
+            className="fixed inset-x-0 top-[68px] z-40 bg-[#FCF7ED] border-b border-[#044745]/8 md:hidden"
           >
-            <nav className="flex flex-col p-6 gap-5">
-              {navLinks.map((link, i) => (
+            <div className="flex flex-col px-5 py-6 gap-0">
+              {NAV_SECTIONS.map((s, i) => (
                 <motion.button
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
+                  key={s.id}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.07 }}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-left text-[#044745] text-lg font-medium hover:text-[#C9A84C] transition-colors"
+                  transition={{ delay: i * 0.04, duration: 0.25 }}
+                  onClick={() => scrollTo(s.id)}
+                  className="text-left text-[#044745] text-base font-medium py-4 border-b border-[#044745]/8 last:border-b-0"
                 >
-                  {link.label}
+                  {s.label}
                 </motion.button>
               ))}
               <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.07 }}
-                onClick={() => handleNavClick("#kontakt")}
-                className="mt-2 w-full py-3 bg-[#044745] text-[#FCF7ED] font-medium rounded-full hover:bg-[#0a6b68] transition-colors"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.15 }}
+                onClick={() => scrollTo("kontakt")}
+                className="mt-5 py-3 bg-[#044745] text-[#FCF7ED] text-sm font-medium rounded-full"
               >
                 Kontaktiere mich
               </motion.button>
-            </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

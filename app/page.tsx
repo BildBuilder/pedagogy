@@ -1,10 +1,11 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Approach from "./components/Approach";
-import Stats from "./components/Stats";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import SectionTransition from "./components/SectionTransition";
+import ImageBreak from "./components/ImageBreak";
 
 export default function Home() {
   return (
@@ -12,10 +13,22 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Approach />
-        <Stats />
-        <Services />
-        <Contact />
+
+        <SectionTransition>
+          <Approach />
+        </SectionTransition>
+
+        <SectionTransition>
+          <ImageBreak />
+        </SectionTransition>
+
+        <SectionTransition>
+          <Services />
+        </SectionTransition>
+
+        <SectionTransition>
+          <Contact />
+        </SectionTransition>
       </main>
       <Footer />
     </>
