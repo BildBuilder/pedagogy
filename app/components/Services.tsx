@@ -136,8 +136,8 @@ function ServiceItem({ service, index }: { service: Service; index: number }) {
                 )}
               </div>
               {/* Expanded image */}
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden hidden sm:block">
-                <Image src={service.image} alt={service.title} fill className="object-cover" sizes="200px" />
+              <div className="relative aspect-[16/9] sm:aspect-[3/4] rounded-xl overflow-hidden">
+                <Image src={service.image} alt={service.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 200px" />
               </div>
             </div>
           </motion.div>

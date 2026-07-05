@@ -12,7 +12,7 @@ export default function Contact() {
   return (
     <section id="kontakt" ref={ref} className="relative py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED] overflow-hidden">
       {/* Background Unsplash image strip */}
-      <div className="absolute top-0 left-0 right-0 h-56 overflow-hidden pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 h-28 sm:h-56 overflow-hidden pointer-events-none">
         <Image
           src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=70&auto=format&fit=crop"
           alt=""
@@ -20,7 +20,7 @@ export default function Contact() {
           className="object-cover opacity-10"
           sizes="100vw"
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, #FCF7ED 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 20%, #FCF7ED 80%)" }} />
       </div>
 
       {/* Animated orbs */}

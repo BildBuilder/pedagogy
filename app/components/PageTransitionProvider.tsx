@@ -35,6 +35,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
   const pathname = usePathname();
   const layerControls = [useAnimation(), useAnimation(), useAnimation()];
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [layersVisible, setLayersVisible] = useState(true);
 
   // On initial load: cover then slide out
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
         )
       );
       layerControls.forEach((ctrl) => ctrl.set({ y: "100%" }));
+      setLayersVisible(false);
     };
 
     if (document.readyState === "complete") {
@@ -76,6 +78,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
       );
       setIsTransitioning(false);
       layerControls.forEach((ctrl) => ctrl.set({ y: "100%" }));
+      setLayersVisible(false);
     };
 
     slideOut();
@@ -86,6 +89,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
     async (href: string) => {
       if (href === pathname) return;
       setIsTransitioning(true);
+      setLayersVisible(true);
 
       // Slide layers up to cover screen
       await Promise.all(
@@ -118,6 +122,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
           style={{
             backgroundColor: color,
             zIndex: 9990 + i,
+            visibility: layersVisible ? "visible" : "hidden",
           }}
         />
       ))}
