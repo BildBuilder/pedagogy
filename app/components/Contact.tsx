@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import TransitionLink from "./TransitionLink";
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null);
@@ -9,7 +11,19 @@ export default function Contact() {
 
   return (
     <section id="kontakt" ref={ref} className="relative py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED] overflow-hidden">
-      {/* Subtle animated blob */}
+      {/* Background Unsplash image strip */}
+      <div className="absolute top-0 left-0 right-0 h-56 overflow-hidden pointer-events-none">
+        <Image
+          src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=70&auto=format&fit=crop"
+          alt=""
+          fill
+          className="object-cover opacity-10"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, #FCF7ED 100%)" }} />
+      </div>
+
+      {/* Animated orbs */}
       <motion.div
         animate={{ scale: [1, 1.12, 1], opacity: [0.07, 0.13, 0.07] }}
         transition={{ repeat: Infinity, duration: 9, ease: "easeInOut" }}
@@ -69,7 +83,7 @@ export default function Contact() {
               transition={{ duration: 0.75, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="flex flex-col sm:flex-row gap-3"
             >
-              <a
+              <TransitionLink
                 href="mailto:didaktiker@gmx.de"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#044745] text-[#FCF7ED] text-sm font-medium rounded-full hover:bg-[#0a6b68] transition-colors duration-300"
               >
@@ -78,7 +92,7 @@ export default function Contact() {
                   <path d="m2 7 10 6 10-6" strokeLinecap="round" />
                 </svg>
                 E-Mail schreiben
-              </a>
+              </TransitionLink>
 
             </motion.div>
           </div>
@@ -120,12 +134,12 @@ export default function Contact() {
                 transition={{ duration: 0.55, delay: 0.79, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="mt-5"
               >
-                <a
+                <TransitionLink
                   href="mailto:didaktiker@gmx.de"
                   className="text-[#044745] hover:text-[#C9A84C] transition-colors underline underline-offset-2"
                 >
                   didaktiker@gmx.de
-                </a>
+                </TransitionLink>
               </motion.p>
             </address>
           </motion.div>

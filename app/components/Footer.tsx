@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 
 export default function Footer() {
   return (
@@ -37,12 +37,12 @@ export default function Footer() {
                   "Berufliche Weiterentwicklung",
                 ].map((item) => (
                   <li key={item}>
-                    <a
+                    <TransitionLink
                       href="#leistungen"
                       className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors duration-200 text-xs"
                     >
                       {item}
-                    </a>
+                    </TransitionLink>
                   </li>
                 ))}
               </ul>
@@ -54,24 +54,24 @@ export default function Footer() {
               </p>
               <ul className="space-y-2.5">
                 <li>
-                  <a href="#ansatz" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
+                  <TransitionLink href="#ansatz" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
                     Mein Ansatz
-                  </a>
+                  </TransitionLink>
                 </li>
                 <li>
-                  <a href="#leistungen" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
+                  <TransitionLink href="#leistungen" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
                     Leistungen
-                  </a>
+                  </TransitionLink>
                 </li>
                 <li>
-                  <a href="#kontakt" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
+                  <TransitionLink href="#kontakt" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
                     Kontakt
-                  </a>
+                  </TransitionLink>
                 </li>
                 <li>
-                  <Link href="/impressum" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
+                  <TransitionLink href="/impressum" className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs">
                     Impressum
-                  </Link>
+                  </TransitionLink>
                 </li>
               </ul>
             </div>
@@ -83,12 +83,12 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li className="text-[#FCF7ED]/55 text-xs">Telefon: +49 17</li>
                 <li>
-                  <a
+                  <TransitionLink
                     href="mailto:didaktiker@gmx.de"
                     className="text-[#FCF7ED]/55 hover:text-[#C9A84C] transition-colors text-xs"
                   >
                     didaktiker@gmx.de
-                  </a>
+                  </TransitionLink>
                 </li>
               </ul>
             </div>
@@ -99,9 +99,9 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-[#FCF7ED]/30">
           <p>© {new Date().getFullYear()} didaktiker · Helene Kleinfeld</p>
-          <Link href="/impressum" className="hover:text-[#C9A84C] transition-colors">
+          <TransitionLink href="/impressum" className="hover:text-[#C9A84C] transition-colors">
             Impressum
-          </Link>
+          </TransitionLink>
         </div>
 
       </div>

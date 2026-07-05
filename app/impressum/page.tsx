@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import Link from "next/link";
+import TransitionLink from "../components/TransitionLink";
 
 export const metadata: Metadata = {
   title: "Impressum \u2013 didaktiker",
@@ -22,7 +22,7 @@ export default function ImpressumPage() {
       {/* ── Top bar ── */}
       <div className="bg-[#044745]">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 h-[68px] flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <TransitionLink href="/" className="flex items-center gap-2.5 group">
             <img
               src="/dd_logosvg.svg"
               alt="didaktiker"
@@ -36,8 +36,8 @@ export default function ImpressumPage() {
             >
               didaktiker
             </span>
-          </Link>
-          <Link
+          </TransitionLink>
+          <TransitionLink
             href="/"
             className="flex items-center gap-1.5 text-[#FCF7ED]/55 text-xs tracking-wide hover:text-[#C9A84C] transition-colors duration-200"
           >
@@ -45,7 +45,7 @@ export default function ImpressumPage() {
               <path d="M19 12H5m7-7-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Zur&uuml;ck
-          </Link>
+          </TransitionLink>
         </div>
       </div>
 
@@ -181,7 +181,7 @@ export default function ImpressumPage() {
 
         {/* Back CTA */}
         <div className="mt-14 pt-10 border-t border-[#044745]/8 flex items-center justify-between">
-          <Link
+          <TransitionLink
             href="/"
             className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#044745] text-[#FCF7ED] text-sm font-medium rounded-full hover:bg-[#0a6b68] transition-colors duration-300"
           >
@@ -189,7 +189,7 @@ export default function ImpressumPage() {
               <path d="M19 12H5m7-7-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Zur&uuml;ck zur Startseite
-          </Link>
+          </TransitionLink>
           <p className="text-[#044745]/30 text-[10px] tracking-wide">
             &copy; {new Date().getFullYear()} didaktiker
           </p>

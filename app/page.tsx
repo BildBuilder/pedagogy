@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Approach from "./components/Approach";
 import Services from "./components/Services";
+import Stats from "./components/Stats";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SectionTransition from "./components/SectionTransition";
@@ -25,6 +26,8 @@ export default function Home() {
         <SectionTransition>
           <Services />
         </SectionTransition>
+
+        <Stats />
 
         <SectionTransition>
           <Contact />

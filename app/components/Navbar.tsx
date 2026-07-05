@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 
 const NAV_SECTIONS = [
   { label: "Ansatz", id: "ansatz" },
@@ -30,13 +30,13 @@ export default function Navbar() {
       <header
         className={`fixed inset-x-0 top-0 z-50 overflow-x-hidden transition-all duration-500 ${
           scrolled
-            ? "bg-[#FCF7ED]/96 backdrop-blur-sm border-b border-[#044745]/8"
+            ? "bg-[#FCF7ED] border-b border-[#044745]/10 shadow-sm shadow-[#044745]/5"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <TransitionLink href="/" className="flex items-center gap-2 group">
             <img
               src="/dd_logosvg.svg"
               alt="didaktiker"
@@ -44,10 +44,10 @@ export default function Navbar() {
               height={36}
               className="transition-opacity duration-300 group-hover:opacity-80"
             />
-            <span className="hidden sm:block text-[#FCF7ED] text-sm font-medium tracking-wide transition-colors duration-300" style={{ color: scrolled ? '#044745' : undefined }}>
+            <span style={{ fontFamily: "var(--font-cormorant, serif)" }} className={`hidden sm:block text-sm font-medium tracking-wide transition-colors duration-500 ${scrolled ? 'text-[#044745]' : 'text-[#FCF7ED]'}`}>
               didaktiker
             </span>
-          </Link>
+          </TransitionLink>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10">
@@ -55,14 +55,22 @@ export default function Navbar() {
               <button
                 key={s.id}
                 onClick={() => scrollTo(s.id)}
-                className="text-[#044745]/60 text-sm hover:text-[#044745] transition-colors duration-200 tracking-wide"
+                className={`text-sm transition-colors duration-300 tracking-wide ${
+                  scrolled
+                    ? 'text-[#044745]/60 hover:text-[#044745]'
+                    : 'text-[#FCF7ED]/70 hover:text-[#FCF7ED]'
+                }`}
               >
                 {s.label}
               </button>
             ))}
             <button
               onClick={() => scrollTo("kontakt")}
-              className="px-5 py-2 border border-[#044745]/30 text-[#044745] text-sm rounded-full hover:bg-[#044745] hover:text-[#FCF7ED] hover:border-[#044745] transition-all duration-300"
+              className={`px-5 py-2 border text-sm rounded-full transition-all duration-300 ${
+                scrolled
+                  ? 'border-[#044745]/30 text-[#044745] hover:bg-[#044745] hover:text-[#FCF7ED]'
+                  : 'border-[#FCF7ED]/30 text-[#FCF7ED]/85 hover:bg-[#FCF7ED]/10 hover:border-[#FCF7ED]/60 hover:text-[#FCF7ED]'
+              }`}
             >
               Kontaktiere mich
             </button>
