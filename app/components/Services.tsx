@@ -172,11 +172,6 @@ export default function Services() {
       <div ref={headerRef} className="relative z-10 bg-[#FCF7ED]/90 backdrop-blur-sm border-b border-[#044745]/5 px-5 sm:px-8 py-8">
         <div className="max-w-6xl mx-auto flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <motion.div initial={{ opacity: 0, x: -16 }} animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.65 }} className="flex items-center gap-3 mb-3">
-              <div className="w-5 h-px bg-[#C9A84C]" />
-              <span className="text-[#C9A84C] text-[11px] font-medium tracking-[0.22em] uppercase">Leistungen</span>
-            </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.08 }}
               className="text-[#044745] leading-tight"

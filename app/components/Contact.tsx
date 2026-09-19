@@ -41,18 +41,6 @@ export default function Contact() {
 
           {/* Left */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="flex items-center gap-3 mb-10"
-            >
-              <div className="w-6 h-px bg-[#C9A84C]" />
-              <span className="text-[#C9A84C] text-[11px] font-medium tracking-[0.22em] uppercase">
-                Kontakt
-              </span>
-            </motion.div>
-
             <motion.h2
               initial={{ opacity: 0, y: 22 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
