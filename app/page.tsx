@@ -14,21 +14,16 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-
         <SectionTransition>
           <Approach />
         </SectionTransition>
-
         <SectionTransition>
           <ImageBreak />
         </SectionTransition>
-
         <SectionTransition>
           <Services />
         </SectionTransition>
-
         <Stats />
-
         <SectionTransition>
           <Contact />
         </SectionTransition>
