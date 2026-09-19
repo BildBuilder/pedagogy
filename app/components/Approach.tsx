@@ -68,16 +68,6 @@ export default function Approach() {
         style={{ background: "radial-gradient(circle, #044745, transparent 70%)" }} />
 
       <div className="max-w-6xl mx-auto">
-        {/* Section label */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex items-center gap-3 mb-12"
-        >
-          <div className="w-6 h-px bg-[#C9A84C]" />
-          <span className="text-[#C9A84C] text-[11px] font-medium tracking-[0.22em] uppercase">Mein Ansatz</span>
-        </motion.div>
 
         {/* Main H2 */}
         <motion.h2

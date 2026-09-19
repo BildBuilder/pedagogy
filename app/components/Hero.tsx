@@ -123,14 +123,6 @@ export default function Hero() {
         className="relative z-10 flex-1 flex items-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 max-w-screen-xl mx-auto w-full pt-28 pb-12"
       >
         <div className="max-w-3xl">
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="text-[#C9A84C]/75 text-xs font-semibold tracking-[0.24em] uppercase mb-8 flex items-center gap-3"
-          >
-            <span className="inline-block w-5 h-px bg-[#C9A84C]/50" />
-            Bildungsberatung &amp; Pädagogik
-          </motion.p>
-
           <h1 className="leading-[1.04] mb-9 tracking-tight"
             style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontWeight: 300, fontSize: "clamp(2.8rem, 5.5vw, 6rem)" }}
           >
