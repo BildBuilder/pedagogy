@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -36,7 +36,7 @@ export default function Contact() {
         className="absolute -bottom-32 -left-20 w-80 h-80 rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, #C9A84C 0%, transparent 70%)" }}
       />
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
 
           {/* Left */}
