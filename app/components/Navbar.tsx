@@ -30,11 +30,11 @@ export default function Navbar() {
       <header
         className={`fixed inset-x-0 top-0 z-50 overflow-x-hidden transition-all duration-500 ${
           scrolled
-            ? "bg-[#FCF7ED] border-b border-[#044745]/10 shadow-sm shadow-[#044745]/5"
+            ? "bg-[#FCF7ED] shadow-sm shadow-[#044745]/5"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-[4.5rem] h-[80px] flex items-center justify-between">
           {/* Logo */}
           <TransitionLink href="/" className="flex items-center gap-2 group">
             <img
@@ -44,33 +44,16 @@ export default function Navbar() {
               height={36}
               className="transition-opacity duration-300 group-hover:opacity-80"
             />
-            <span style={{ fontFamily: "var(--font-cormorant, serif)" }} className={`hidden sm:block text-sm font-medium tracking-wide transition-colors duration-500 ${scrolled ? 'text-[#044745]' : 'text-[#FCF7ED]'}`}>
-              didaktiker
+            <span style={{ fontFamily: "var(--font-cormorant, serif)" }} className="block text-lg font-medium tracking-wide text-[#044745]">
+              Didaktiker
             </span>
           </TransitionLink>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10">
-            {NAV_SECTIONS.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => scrollTo(s.id)}
-                className={`text-sm transition-colors duration-300 tracking-wide ${
-                  scrolled
-                    ? 'text-[#044745]/60 hover:text-[#044745]'
-                    : 'text-[#FCF7ED]/70 hover:text-[#FCF7ED]'
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
             <button
               onClick={() => scrollTo("kontakt")}
-              className={`px-5 py-2 border text-sm rounded-full transition-all duration-300 ${
-                scrolled
-                  ? 'border-[#044745]/30 text-[#044745] hover:bg-[#044745] hover:text-[#FCF7ED]'
-                  : 'border-[#FCF7ED]/30 text-[#FCF7ED]/85 hover:bg-[#FCF7ED]/10 hover:border-[#FCF7ED]/60 hover:text-[#FCF7ED]'
-              }`}
+              className="px-5 py-2 border text-sm rounded-full text-[#FCF7ED] transition-all duration-300 bg-[#044745] border-[#044745] cursor-pointer"
             >
               Kontaktiere mich
             </button>
@@ -83,25 +66,22 @@ export default function Navbar() {
             aria-label="Men\u00fc \u00f6ffnen"
           >
             <span
-              className="block w-5 h-px bg-[#FCF7ED] rounded-full origin-center transition-transform duration-250"
+              className="block w-5 h-px bg-[#044745] rounded-full origin-center transition-transform duration-250"
               style={{
                 transform: open ? 'translateY(7px) rotate(45deg)' : 'none',
-                backgroundColor: scrolled ? '#044745' : undefined,
               }}
             />
             <span
-              className="block w-5 h-px bg-[#FCF7ED] rounded-full transition-all duration-200"
+              className="block w-5 h-px bg-[#044745] rounded-full transition-all duration-200"
               style={{
                 opacity: open ? 0 : 1,
                 transform: open ? 'scaleX(0)' : 'scaleX(1)',
-                backgroundColor: scrolled ? '#044745' : undefined,
               }}
             />
             <span
-              className="block w-5 h-px bg-[#FCF7ED] rounded-full origin-center transition-transform duration-250"
+              className="block w-5 h-px bg-[#044745] rounded-full origin-center transition-transform duration-250"
               style={{
                 transform: open ? 'translateY(-7px) rotate(-45deg)' : 'none',
-                backgroundColor: scrolled ? '#044745' : undefined,
               }}
             />
           </button>
@@ -116,7 +96,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-x-0 top-[68px] z-40 bg-[#FCF7ED] border-b border-[#044745]/8 md:hidden"
+            className="fixed inset-x-0 top-[80px] z-40 bg-[#FCF7ED] border-b border-[#044745]/8 md:hidden"
           >
             <div className="flex flex-col px-5 py-6 gap-0">
               {NAV_SECTIONS.map((s, i) => (

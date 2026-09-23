@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,7 +13,6 @@ type Service = {
   paragraphs: string[];
   bulletTitle?: string;
   bullets?: string[];
-  image: string;
 };
 
 const SERVICES: Service[] = [
@@ -22,7 +20,6 @@ const SERVICES: Service[] = [
     number: "01",
     title: "Vertrauensvoller Partner",
     paragraphs: ["Ich coache dich und stehe dir als vertrauensvoller Partner zur Seite, der dich mit Rat und Tat unterstützt."],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop",
   },
   {
     number: "02",
@@ -31,7 +28,6 @@ const SERVICES: Service[] = [
       "Du fühlst dich manchmal unsicher, überfordert oder blockiert? Fragen wie \u201EWie finde ich meinen Platz im Team?\u201C halten dich zurück?",
       "Im Coaching arbeiten wir daran, deine Stärken zu erkennen, Ängste abzubauen und klare Strategien zu entwickeln.",
     ],
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&auto=format&fit=crop",
   },
   {
     number: "03",
@@ -39,25 +35,21 @@ const SERVICES: Service[] = [
     paragraphs: ["Du suchst neue Ideen und frische Impulse? Als Ideengeber unterstütze ich dich bei innovativen Konzepten. Meine Workshops sind praxisnah und genau auf deine Bedürfnisse zugeschnitten."],
     bulletTitle: "Schwerpunkte meiner Workshops:",
     bullets: ["Pädagogik zum Thema Nachhaltigkeit","Projekte für Ateliers","Offene Arbeit","Raum- und Nutzungsstrukturen","Partizipation im Alltag","Medien"],
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80&auto=format&fit=crop",
   },
   {
     number: "04",
     title: "Konzeptarbeit",
     paragraphs: ["Ein gutes Konzept ist der Anfang von allem! Ich helfe dir, klare und umsetzbare Ideen für dein Business zu entwickeln."],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80&auto=format&fit=crop",
   },
   {
     number: "05",
     title: "Leidenschaft fürs Ausstatten",
     paragraphs: ["Du planst einen neuen Raum oder eine gesamte Kita auszustatten? Ich begleite dich von Anfang an und gestalte Räume, in denen Kinder sich wohlfühlen."],
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80&auto=format&fit=crop",
   },
   {
     number: "06",
     title: "Berufliche Weiterentwicklung",
     paragraphs: ["Erlebe maßgeschneidertes Coaching für deine berufliche Weiterentwicklung. Ob am Anfang deiner Leitungstätigkeit oder mit Erfahrung – ich begleite dich zum Erfolg."],
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -76,20 +68,8 @@ function ServiceItem({ service, index }: { service: Service; index: number }) {
     >
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center gap-5 py-6 text-left group hover:pl-2 transition-all duration-300"
+        className="w-full flex items-center justify-between gap-5 py-6 text-left group hover:pl-2 transition-all duration-300"
       >
-        {/* Thumbnail */}
-        <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 hidden sm:block">
-          <Image
-            src={service.image}
-            alt={service.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="56px"
-          />
-          <div className="absolute inset-0 bg-[#044745]/30 group-hover:bg-[#044745]/10 transition-colors duration-300" />
-        </div>
-
         <div className="flex items-center gap-5 flex-1 min-w-0">
           <span className="text-[#C9A84C] text-xs font-mono tracking-[0.15em] flex-shrink-0">
             <motion.span initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
@@ -117,7 +97,7 @@ function ServiceItem({ service, index }: { service: Service; index: number }) {
             transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <div className="grid sm:grid-cols-[1fr_200px] gap-8 pb-8 pl-0 sm:pl-[4.5rem]">
+            <div className="pb-8 pl-0 sm:pl-10 max-w-3xl">
               <div className="space-y-3">
                 {service.paragraphs.map((p, i) => (
                   <p key={i} className="text-[#044745]/70 text-sm sm:text-base leading-relaxed">{p}</p>
@@ -125,19 +105,15 @@ function ServiceItem({ service, index }: { service: Service; index: number }) {
                 {service.bulletTitle && (
                   <>
                     <p className="text-[#044745]/80 font-medium text-sm mt-4">{service.bulletTitle}</p>
-                    <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 pt-1">
                       {service.bullets?.map((b, i) => (
-                        <li key={i} className="text-[#044745]/60 text-xs flex items-start gap-2">
+                        <li key={i} className="text-[#044745]/60 text-xs sm:text-sm flex items-start gap-2">
                           <span className="text-[#C9A84C] mt-1 flex-shrink-0">–</span>{b}
                         </li>
                       ))}
                     </ul>
                   </>
                 )}
-              </div>
-              {/* Expanded image */}
-              <div className="relative aspect-[16/9] sm:aspect-[3/4] rounded-xl overflow-hidden">
-                <Image src={service.image} alt={service.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 200px" />
               </div>
             </div>
           </motion.div>

@@ -142,7 +142,7 @@ export default function Approach() {
           <div ref={imgRef} className="relative aspect-[4/5] rounded-2xl overflow-hidden">
             <div ref={imgInnerRef} className="absolute inset-[-15%]">
               <Image
-                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=85&auto=format&fit=crop"
+                src="/path-of-mastery.png"
                 alt="Pädagogin bei der Arbeit – Lernen und Lehren"
                 fill
                 className="object-cover"

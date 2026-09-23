@@ -16,10 +16,10 @@ export default function ImageBreak() {
       {/* Parallax image */}
       <motion.div style={{ y: imgY }} className="absolute inset-0 scale-[1.38]">
         <Image
-          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1800&q=85&auto=format&fit=crop"
+          src="/learning.png"
           alt="Bildung und Lernatmosphäre"
           fill
-          className="object-cover object-top"
+          className="object-cover object-center"
           sizes="100vw"
           priority={false}
         />

@@ -11,31 +11,6 @@ export default function Contact() {
 
   return (
     <section id="kontakt" ref={ref} className="relative py-24 md:py-36 px-5 sm:px-8 bg-[#FCF7ED] overflow-hidden">
-      {/* Background Unsplash image strip */}
-      <div className="absolute top-0 left-0 right-0 h-28 sm:h-56 overflow-hidden pointer-events-none">
-        <Image
-          src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1400&q=70&auto=format&fit=crop"
-          alt=""
-          fill
-          className="object-cover opacity-10"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 20%, #FCF7ED 80%)" }} />
-      </div>
-
-      {/* Animated orbs */}
-      <motion.div
-        animate={{ scale: [1, 1.12, 1], opacity: [0.07, 0.13, 0.07] }}
-        transition={{ repeat: Infinity, duration: 9, ease: "easeInOut" }}
-        className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, #044745 0%, transparent 70%)" }}
-      />
-      <motion.div
-        animate={{ scale: [1, 1.08, 1], opacity: [0.04, 0.09, 0.04] }}
-        transition={{ repeat: Infinity, duration: 13, ease: "easeInOut", delay: 4 }}
-        className="absolute -bottom-32 -left-20 w-80 h-80 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, #C9A84C 0%, transparent 70%)" }}
-      />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
 

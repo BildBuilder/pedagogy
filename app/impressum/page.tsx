@@ -34,7 +34,7 @@ export default function ImpressumPage() {
               className="text-[#FCF7ED] text-sm font-medium tracking-wide"
               style={{ fontFamily: "var(--font-cormorant, serif)", fontSize: "1.05rem" }}
             >
-              didaktiker
+              Didaktiker
             </span>
           </TransitionLink>
           <TransitionLink
@@ -90,7 +90,7 @@ export default function ImpressumPage() {
               Anbieter
             </p>
             <p className="text-[#044745]/70 text-sm leading-relaxed">
-              didaktiker[a]gmx.de
+              didaktiker@gmx.de
             </p>
           </div>
 

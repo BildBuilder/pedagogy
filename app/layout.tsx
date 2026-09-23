@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { Cormorant_Garamond } from "next/font/google";
+import { Cormorant_Garamond, Caveat } from "next/font/google";
 import "./globals.css";
 import ClientProviders from "./components/ClientProviders";
 
@@ -14,6 +14,12 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
+});
+
+const caveat = Caveat({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -33,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${geistSans.variable} ${cormorant.variable} antialiased`}>
+    <html lang="de" className={`${geistSans.variable} ${cormorant.variable} ${caveat.variable} antialiased`}>
       <body className="min-h-screen flex flex-col">
         <ClientProviders>
           {children}
