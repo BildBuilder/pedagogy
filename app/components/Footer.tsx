@@ -81,7 +81,6 @@ export default function Footer() {
                 Kontakt
               </p>
               <ul className="space-y-2.5">
-                <li className="text-[#FCF7ED]/55 text-xs">Telefon: +49 17</li>
                 <li>
                   <TransitionLink
                     href="mailto:didaktiker@gmx.de"
